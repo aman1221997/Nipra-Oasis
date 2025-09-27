@@ -1,0 +1,49 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- Left side: Logo or Brand Name -->
+        <div class="navbar-brand">
+            <a routerLink="/" class="brand-link">
+                <img *ngIf="logo" [src]="logo" alt="Logo" class="brand-logo">
+                <span *ngIf="!logo" class="brand-name">{{ brandName }}</span>
+            </a>
+        </div>
+
+        <!-- Right side: Navigation Links (Desktop) -->
+        <div class="navbar-nav">
+            <ul class="nav-links">
+                <li *ngFor="let link of links" class="nav-item">
+                    <a [routerLink]="link.link" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
+                        {{ link.text }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" [class.open]="isMobileMenuOpen">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <button class="close-btn" (click)="closeMobileMenu()">
+                    <span class="close-icon">×</span>
+                </button>
+            </div>
+
+            <ul class="mobile-nav-links">
+                <li *ngFor="let link of links" class="mobile-nav-item">
+                    <a [routerLink]="link.link" routerLinkActive="active" class="mobile-nav-link"
+                        (click)="closeMobileMenu()">
+                        {{ link.text }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
