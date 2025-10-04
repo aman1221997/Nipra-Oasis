@@ -8,6 +8,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     NavbarComponent,
     FooterComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    GalleryComponent,
+    CartComponent,
+    CheckoutComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

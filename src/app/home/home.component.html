@@ -1,11 +1,22 @@
 <app-navbar></app-navbar>
 <main>
-    <section class="banner">
-        <div class="banner-content">
-            <h1>{{brandName}}</h1>
-            <p>Get 20% Off on Diwali</p>
-            <button>Shop Now</button>
+    <div class="slider-container" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
+        <div class="slider" [ngStyle]="{'transform': 'translateX(-' + currentSlide * 100 + '%)'}">
+            <div *ngFor="let slide of slides; let i = index" class="slide"
+                [ngStyle]="{'background-image': 'url(' + slide.bg + ')'}">
+                <div class="content">
+                    <h1>{{ slide.heading }}</h1>
+                    <p>{{ slide.description }}</p>
+                    <button>Order Now</button>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <div class="slider-nav">
+            <span class="prev" (click)="prevSlide()">&#10094;</span>
+            <span class="next" (click)="nextSlide()">&#10095;</span>
+        </div>
+    </div>
 </main>
+
 <app-footer></app-footer>

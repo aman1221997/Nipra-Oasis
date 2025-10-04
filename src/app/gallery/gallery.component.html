@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<main>
+    <section class="gallery-banner">
+        <div class="overlay">
+            <h1>Our Gallery</h1>
+            <p>Moments that define the spirit of Nipra Oasis</p>
+        </div>
+    </section>
+    <div class="gallery">
+        <ng-container *ngFor="let item of galleryImages; let i = index">
+            <div class="gallery-item" (click)="asrOpenModal(i)">
+                <img [src]="item" alt="gallery" />
+            </div>
+        </ng-container>
+    </div>
+    <div class="modal" *ngIf="isModalOpen">
+        <div class="modal-content">
+            <span class="close" (click)="asrCloseModal()">&times;</span>
+            <img [src]="currentItem" alt="modal content" />
+            <button class="nav-btn prev" (click)="asrPrevItem()">Previous</button>
+            <button class="nav-btn next" (click)="asrNextItem()">Next</button>
+        </div>
+              
+    </div>
+</main>
+
+<app-footer></app-footer>
