@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -58,7 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.startAutoSlide(); // Start auto-sliding when component is initialized
@@ -66,5 +67,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopAutoSlide(); // Clean up the interval when the component is destroyed
+  }
+
+  // Navigate to About Us page
+  navigateToAbout(): void {
+    this.router.navigate(['/about-us']);
+  }
+
+  // Open Google Form in new tab
+  openOrderForm(): void {
+    window.open('https://docs.google.com/forms/d/1ZyOThGQHFvp3ioatGi1esMbNkfXvPnlW8AHIQQxd_T8/viewform?edit_requested=true', '_blank');
   }
 }

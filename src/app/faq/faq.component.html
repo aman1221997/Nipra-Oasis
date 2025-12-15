@@ -1,1 +1,74 @@
-<p>faq works!</p>
+<app-navbar></app-navbar>
+<main>
+    <!-- Hero Banner -->
+    <section class="faq-banner">
+        <div class="overlay">
+            <h1 class="fade-in">Frequently Asked Questions</h1>
+            <p class="fade-in-delay">Find answers to common questions about our services</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content container">
+        <!-- Category Filter -->
+        <div class="category-filter fade-in-up">
+            <h2>Browse by Category</h2>
+            <div class="category-buttons">
+                <button 
+                    *ngFor="let category of categories" 
+                    [class.active]="selectedCategory === category.id"
+                    (click)="filterByCategory(category.id)"
+                    class="category-btn">
+                    <span class="icon">{{category.icon}}</span>
+                    <span class="name">{{category.name}}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-accordion">
+            <div 
+                *ngFor="let faq of filteredFaqs; let i = index" 
+                class="faq-item fade-in-up"
+                [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="faq-question" (click)="toggleFaq(faq)" [class.active]="faq.isOpen">
+                    <div class="question-content">
+                        <span class="question-icon">❓</span>
+                        <h3>{{faq.question}}</h3>
+                    </div>
+                    <span class="toggle-icon" [class.rotate]="faq.isOpen">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                </div>
+                <div class="faq-answer" [class.open]="faq.isOpen">
+                    <div class="answer-content">
+                        <p>{{faq.answer}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Still Have Questions Section -->
+        <div class="contact-section fade-in-up">
+            <div class="contact-card">
+                <h2>Still Have Questions?</h2>
+                <p>Can't find the answer you're looking for? Our team is here to help!</p>
+                <div class="contact-options">
+                    <a href="tel:+919821397833" class="contact-btn phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Call Us</span>
+                    </a>
+                    <a href="https://wa.me/919821397833" target="_blank" class="contact-btn whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a routerLink="/contact-us" class="contact-btn email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Contact Form</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>

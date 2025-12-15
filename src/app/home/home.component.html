@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <main>
+    <!-- Hero Slider -->
     <div class="slider-container" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
         <div class="slider" [ngStyle]="{'transform': 'translateX(-' + currentSlide * 100 + '%)'}">
             <div *ngFor="let slide of slides; let i = index" class="slide"
@@ -7,7 +8,7 @@
                 <div class="content">
                     <h1>{{ slide.heading }}</h1>
                     <p>{{ slide.description }}</p>
-                    <button>Order Now</button>
+                    <button (click)="openOrderForm()">Order Now</button>
                 </div>
             </div>
         </div>
@@ -17,6 +18,115 @@
             <span class="next" (click)="nextSlide()">&#10095;</span>
         </div>
     </div>
+
+    <!-- Water Supply Section -->
+    <section class="water-supply-section">
+        <div class="container">
+            <div class="section-content">
+                <div class="text-content fade-in-left">
+                    <div class="icon-badge">💧</div>
+                    <h2>Pure Water Supply</h2>
+                    <p class="section-description">
+                        Clean, safe, and hygienic drinking water delivered to your doorstep. 
+                        We provide purified water in various jar sizes with flexible subscription 
+                        plans to suit your needs.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Multiple jar sizes available</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Flexible subscription plans</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Timely doorstep delivery</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Assured purity & quality</span>
+                        </div>
+                    </div>
+                    <button class="cta-button water-btn" (click)="navigateToAbout()">
+                        Learn More About Water Supply
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+                <div class="image-content fade-in-right">
+                    <div class="image-wrapper">
+                        <img src="../../assets/images/water_2jar.png" alt="Water Jars">
+                        <div class="price-tag">
+                            <span class="price">Starting at ₹12/L</span>
+                            <span class="subtitle">with yearly plan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pizza Section -->
+    <section class="pizza-section">
+        <div class="container">
+            <div class="section-content reverse">
+                <div class="image-content fade-in-left">
+                    <div class="image-wrapper">
+                        <img src="../../assets/images/Pizza_small_medium_large.png" alt="Fresh Pizzas">
+                        <div class="price-tag pizza-tag">
+                            <span class="price">Starting at ₹89</span>
+                            <span class="subtitle">Fresh & Hot</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-content fade-in-right">
+                    <div class="icon-badge pizza-badge">🍕</div>
+                    <h2>Fresh Pizza Delivery</h2>
+                    <p class="section-description">
+                        Delicious pizzas made with quality ingredients and perfectly baked crusts. 
+                        From budget-friendly options to premium cheesy indulgence, we deliver 
+                        hot and fresh pizzas within 40 minutes.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Freshly prepared on order</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Multiple sizes available</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Delivered within 40 minutes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Affordable & delicious</span>
+                        </div>
+                    </div>
+                    <button class="cta-button pizza-btn" (click)="navigateToAbout()">
+                        Learn More About Our Pizzas
+                        <span class="arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Quality Service?</h2>
+                <p>Discover more about our water supply and pizza delivery services</p>
+                <button class="main-cta-button" (click)="navigateToAbout()">
+                    Explore All Services
+                </button>
+            </div>
+        </div>
+    </section>
 </main>
 
 <app-footer></app-footer>
