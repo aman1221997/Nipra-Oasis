@@ -717,6 +717,11 @@ main {
             .why-choose {
                 .features-grid {
                     grid-template-columns: 1fr;
+                    gap: 10px;
+
+                    .feature-item {
+                        padding: 10px;
+                    }
                 }
             }
         }

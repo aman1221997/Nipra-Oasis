@@ -11,10 +11,23 @@
         <!-- Right side: Navigation Links (Desktop) -->
         <div class="navbar-nav">
             <ul class="nav-links">
-                <li *ngFor="let link of links" class="nav-item">
-                    <a [routerLink]="link.link" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
+                <li *ngFor="let link of links" class="nav-item" [class.has-dropdown]="link.hasDropdown">
+                    <a *ngIf="!link.hasDropdown" [routerLink]="link.link" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
                         {{ link.text }}
                     </a>
+                    <div *ngIf="link.hasDropdown" class="dropdown">
+                        <a class="nav-link dropdown-toggle" (click)="toggleDropdown(link.text)">
+                            {{ link.text }}
+                            <span class="arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu" [class.show]="isDropdownOpen(link.text)">
+                            <li *ngFor="let item of link.dropdownItems">
+                                <a [routerLink]="item.link" class="dropdown-item" (click)="closeMobileMenu()">
+                                    {{ item.text }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -37,11 +50,24 @@
             </div>
 
             <ul class="mobile-nav-links">
-                <li *ngFor="let link of links" class="mobile-nav-item">
-                    <a [routerLink]="link.link" routerLinkActive="active" class="mobile-nav-link"
+                <li *ngFor="let link of links" class="mobile-nav-item" [class.has-dropdown]="link.hasDropdown">
+                    <a *ngIf="!link.hasDropdown" [routerLink]="link.link" routerLinkActive="active" class="mobile-nav-link"
                         (click)="closeMobileMenu()">
                         {{ link.text }}
                     </a>
+                    <div *ngIf="link.hasDropdown" class="mobile-dropdown">
+                        <a class="mobile-nav-link dropdown-toggle" (click)="toggleDropdown(link.text)">
+                            {{ link.text }}
+                            <span class="arrow" [class.open]="isDropdownOpen(link.text)">▼</span>
+                        </a>
+                        <ul class="mobile-dropdown-menu" [class.show]="isDropdownOpen(link.text)">
+                            <li *ngFor="let item of link.dropdownItems">
+                                <a [routerLink]="item.link" class="mobile-dropdown-item" (click)="closeMobileMenu()">
+                                    {{ item.text }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
