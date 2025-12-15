@@ -51,8 +51,11 @@
             margin: 0;
             padding: 0;
             gap: 2rem;
+            align-items: center;
 
             .nav-item {
+                position: relative;
+
                 .nav-link {
                     text-decoration: none;
                     color: #09283c;
@@ -71,6 +74,65 @@
                     &.active {
                         font-weight: 600;
                         border-bottom: 2px solid #09283c;
+                    }
+                }
+
+                // Dropdown styles
+                &.has-dropdown {
+                    .dropdown {
+                        position: relative;
+
+                        .dropdown-toggle {
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            gap: 0.3rem;
+
+                            .arrow {
+                                font-size: 10px;
+                                transition: transform 0.3s ease;
+                            }
+                        }
+
+                        .dropdown-menu {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            background-color: #fff;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                            border-radius: 4px;
+                            list-style: none;
+                            margin: 0.5rem 0 0 0;
+                            padding: 0.5rem 0;
+                            min-width: 150px;
+                            opacity: 0;
+                            visibility: hidden;
+                            transform: translateY(-10px);
+                            transition: all 0.3s ease;
+                            z-index: 1000;
+
+                            &.show {
+                                opacity: 1;
+                                visibility: visible;
+                                transform: translateY(0);
+                            }
+
+                            li {
+                                .dropdown-item {
+                                    display: block;
+                                    padding: 0.75rem 1.5rem;
+                                    text-decoration: none;
+                                    color: #09283c;
+                                    font-size: 14px;
+                                    transition: all 0.2s ease;
+
+                                    &:hover {
+                                        background-color: #f0f0f0;
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -187,6 +249,57 @@
                             color: #09283c;
                             font-weight: 600;
                             border-bottom: 2px solid #09283c;
+                        }
+                    }
+
+                    // Mobile dropdown styles
+                    &.has-dropdown {
+                        .mobile-dropdown {
+                            .dropdown-toggle {
+                                cursor: pointer;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 0.5rem;
+
+                                .arrow {
+                                    font-size: 14px;
+                                    transition: transform 0.3s ease;
+
+                                    &.open {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+
+                            .mobile-dropdown-menu {
+                                list-style: none;
+                                margin: 0;
+                                padding: 0;
+                                max-height: 0;
+                                overflow: hidden;
+                                transition: max-height 0.3s ease;
+
+                                &.show {
+                                    max-height: 500px;
+                                }
+
+                                li {
+                                    .mobile-dropdown-item {
+                                        display: block;
+                                        text-decoration: none;
+                                        color: #09283c;
+                                        font-size: 20px;
+                                        font-weight: 400;
+                                        padding: 0.75rem 0;
+                                        transition: all 0.2s ease;
+
+                                        &:hover {
+                                            font-weight: 600;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

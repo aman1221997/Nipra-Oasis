@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     },
     {
       heading: 'Pure Water, Pure Health',
-      description: '20L water jars, clean and safe, delivered at your home for just ₹25.',
+      description: '20L water jars, clean and safe, delivered at your home for just ₹20.',
       bg: '../../assets/images/water_2jar.png'
     }
   ];

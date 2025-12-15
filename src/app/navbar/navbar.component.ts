@@ -17,6 +17,16 @@ export class NavbarComponent implements OnInit {
       link: "/home"
     },
     {
+      text: "Services",
+      link: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        { text: "Water", link: "/service/water" },
+        { text: "Pizza", link: "/service/pizza" },
+        { text: "Gas", link: "/service/gas" }
+      ]
+    },
+    {
       text: "Gallery",
       link: "/gallery"
     },
@@ -32,6 +42,7 @@ export class NavbarComponent implements OnInit {
   
   // Mobile menu properties
   public isMobileMenuOpen: boolean = false;
+  public openDropdown: string | null = null;
 
   constructor() {}
 
@@ -52,6 +63,15 @@ export class NavbarComponent implements OnInit {
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
+    this.openDropdown = null;
     document.body.style.overflow = 'auto';
+  }
+
+  toggleDropdown(linkText: string) {
+    this.openDropdown = this.openDropdown === linkText ? null : linkText;
+  }
+
+  isDropdownOpen(linkText: string): boolean {
+    return this.openDropdown === linkText;
   }
 }

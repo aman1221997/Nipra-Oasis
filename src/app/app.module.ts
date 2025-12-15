@@ -12,6 +12,12 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FaqComponent } from './faq/faq.component';
+import { WaterComponent } from './service/water/water.component';
+import { PizzaComponent } from './service/pizza/pizza.component';
+import { GasComponent } from './service/gas/gas.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { FaqComponent } from './faq/faq.component';
     GalleryComponent,
     CartComponent,
     CheckoutComponent,
-    FaqComponent
+    FaqComponent,
+    WaterComponent,
+    PizzaComponent,
+    GasComponent,
+    PrivacyPolicyComponent,
+    TermsOfServiceComponent,
+    RefundPolicyComponent
   ],
   imports: [
     BrowserModule,

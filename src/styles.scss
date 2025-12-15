@@ -1,8 +1,188 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Cinzel:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cinzel:wght@400;500;600;700;800&display=swap');
 
+/* Global Font Styles */
 body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Apply Cinzel to all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+}
+
+/* Apply Roboto to all paragraphs and body text */
+p, span, div, a, li, td, th, label, input, textarea, select, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Ensure consistent box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global Button Styles */
+.btn, .cta-button, button.cta-button, a.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  &:hover::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .arrow {
+    transform: translateX(5px);
+  }
+}
+
+/* Primary Button - Water/Default */
+.btn-primary, .cta-button.water-btn {
+  background: linear-gradient(135deg, #00a884 0%, #00d4aa 100%);
+  color: white;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 168, 132, 0.4);
+  }
+}
+
+/* Secondary Button - Pizza */
+.btn-secondary, .cta-button.pizza-btn {
+  background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+  color: white;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+  }
+}
+
+/* Tertiary Button - Gas */
+.btn-tertiary, .cta-button.gas-btn {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
+  }
+}
+
+/* Light Button - For dark backgrounds */
+.btn-light {
+  background: white;
+  color: #09283c;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  border: 2px solid currentColor;
+  box-shadow: none;
+
+  &:hover {
+    background: currentColor;
+    color: white;
+  }
+}
+
+/* Small Button */
+.btn-sm {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Large Button */
+.btn-lg {
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+}
+
+/* Responsive Button Styles */
+@media (max-width: 768px) {
+  .btn, .cta-button, button.cta-button, a.cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .btn-sm {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Global Mobile Padding */
+  .container, section .container, main .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Ensure all sections have proper padding */
+  section, main section {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

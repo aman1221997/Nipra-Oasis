@@ -8,7 +8,7 @@
                 <div class="content">
                     <h1>{{ slide.heading }}</h1>
                     <p>{{ slide.description }}</p>
-                    <button (click)="openOrderForm()">Order Now</button>
+                    <button class="cta-button btn-primary" (click)="openOrderForm()">Order Now</button>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                             <span>Assured purity & quality</span>
                         </div>
                     </div>
-                    <button class="cta-button water-btn" (click)="navigateToAbout()">
+                    <button class="cta-button water-btn" routerLink="/service/water">
                         Learn More About Water Supply
                         <span class="arrow">→</span>
                     </button>
@@ -58,7 +58,7 @@
                     <div class="image-wrapper">
                         <img src="../../assets/images/water_2jar.png" alt="Water Jars">
                         <div class="price-tag">
-                            <span class="price">Starting at ₹12/L</span>
+                            <span class="price">Starting at ₹15/L</span>
                             <span class="subtitle">with yearly plan</span>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             <span>Affordable & delicious</span>
                         </div>
                     </div>
-                    <button class="cta-button pizza-btn" (click)="navigateToAbout()">
+                    <button class="cta-button pizza-btn" routerLink="/service/pizza">
                         Learn More About Our Pizzas
                         <span class="arrow">→</span>
                     </button>
@@ -120,8 +120,8 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Experience Quality Service?</h2>
-                <p>Discover more about our water supply and pizza delivery services</p>
-                <button class="main-cta-button" (click)="navigateToAbout()">
+                <p>Discover more about our water supply, pizza delivery, and gas services</p>
+                <button class="cta-button btn-primary btn-lg" routerLink="/service/water">
                     Explore All Services
                 </button>
             </div>
