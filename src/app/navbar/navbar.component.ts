@@ -31,6 +31,10 @@ export class NavbarComponent implements OnInit {
       link: "/gallery"
     },
     {
+      text: "FAQs",
+      link: "/faq"
+    },
+    {
       text: "About",
       link: "/about-us"
     },
