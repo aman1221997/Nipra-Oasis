@@ -2,12 +2,67 @@ main {
     margin-top: 100px;
     font-family: 'Roboto', sans-serif;
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
         font-family: 'Cinzel', serif;
     }
 
+    // Animations
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    .fade-in-left {
+        animation: fadeInLeft 1s ease-out;
+    }
+
+    .fade-in-right {
+        animation: fadeInRight 1s ease-out;
+    }
+
+    // Container
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    // Hero Slider
     .slider-container {
         position: relative;
         width: 100%;
@@ -20,7 +75,7 @@ main {
             .slide {
                 width: 100%;
                 flex-shrink: 0;
-                box-sizing: border-box; // important!
+                box-sizing: border-box;
                 padding: 50px;
                 min-width: 100%;
                 background-size: cover;
@@ -82,7 +137,6 @@ main {
                             color: #ffffff;
                         }
                     }
-
                 }
             }
         }
@@ -95,8 +149,7 @@ main {
             justify-content: space-between;
             transform: translateY(-50%);
 
-            .prev,
-            .next {
+            .prev, .next {
                 background-color: rgba(0, 0, 0, 0.5);
                 color: white;
                 border: none;
@@ -111,8 +164,383 @@ main {
             }
         }
     }
+
+    // Water Supply Section
+    .water-supply-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 168, 132, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+            .text-content {
+                .icon-badge {
+                    font-size: 60px;
+                    margin-bottom: 1rem;
+                    display: inline-block;
+                    animation: float 3s ease-in-out infinite;
+                }
+
+                h2 {
+                    font-size: 42px;
+                    color: #09283c;
+                    margin-bottom: 1rem;
+                }
+
+                .section-description {
+                    font-size: 1.1rem;
+                    line-height: 1.8;
+                    color: #333;
+                    margin-bottom: 2rem;
+                }
+
+                .features-list {
+                    margin-bottom: 2rem;
+
+                    .feature-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        margin-bottom: 1rem;
+                        padding: 0.75rem;
+                        background: white;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            transform: translateX(10px);
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                        }
+
+                        .check-icon {
+                            font-size: 1.5rem;
+                            color: #00a884;
+                            font-weight: bold;
+                            flex-shrink: 0;
+                        }
+
+                        span:last-child {
+                            color: #333;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                .cta-button {
+                    padding: 1rem 2rem;
+                    font-size: 1.1rem;
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+                    .arrow {
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover .arrow {
+                        transform: translateX(5px);
+                    }
+
+                    &.water-btn {
+                        background: linear-gradient(135deg, #00a884 0%, #00d4aa 100%);
+                        color: white;
+
+                        &:hover {
+                            transform: translateY(-3px);
+                            box-shadow: 0 6px 20px rgba(0, 168, 132, 0.4);
+                        }
+                    }
+                }
+            }
+
+            .image-content {
+                position: relative;
+
+                .image-wrapper {
+                    position: relative;
+                    animation: float 4s ease-in-out infinite;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 20px;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .price-tag {
+                        position: absolute;
+                        bottom: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #00a884 0%, #00d4aa 100%);
+                        color: white;
+                        padding: 1rem 1.5rem;
+                        border-radius: 15px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                        text-align: center;
+
+                        .price {
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                            margin-bottom: 0.25rem;
+                        }
+
+                        .subtitle {
+                            display: block;
+                            font-size: 0.9rem;
+                            opacity: 0.9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Pizza Section
+    .pizza-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 87, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+            &.reverse {
+                .text-content {
+                    order: 2;
+                }
+
+                .image-content {
+                    order: 1;
+                }
+            }
+
+            .text-content {
+                .icon-badge {
+                    font-size: 60px;
+                    margin-bottom: 1rem;
+                    display: inline-block;
+                    animation: float 3s ease-in-out infinite;
+
+                    &.pizza-badge {
+                        animation-delay: 0.5s;
+                    }
+                }
+
+                h2 {
+                    font-size: 42px;
+                    color: #09283c;
+                    margin-bottom: 1rem;
+                }
+
+                .section-description {
+                    font-size: 1.1rem;
+                    line-height: 1.8;
+                    color: #333;
+                    margin-bottom: 2rem;
+                }
+
+                .features-list {
+                    margin-bottom: 2rem;
+
+                    .feature-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        margin-bottom: 1rem;
+                        padding: 0.75rem;
+                        background: white;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            transform: translateX(10px);
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                        }
+
+                        .check-icon {
+                            font-size: 1.5rem;
+                            color: #ff5722;
+                            font-weight: bold;
+                            flex-shrink: 0;
+                        }
+
+                        span:last-child {
+                            color: #333;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+
+                .cta-button {
+                    padding: 1rem 2rem;
+                    font-size: 1.1rem;
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+                    .arrow {
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover .arrow {
+                        transform: translateX(5px);
+                    }
+
+                    &.pizza-btn {
+                        background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+                        color: white;
+
+                        &:hover {
+                            transform: translateY(-3px);
+                            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+                        }
+                    }
+                }
+            }
+
+            .image-content {
+                position: relative;
+
+                .image-wrapper {
+                    position: relative;
+                    animation: float 4s ease-in-out infinite;
+                    animation-delay: 0.5s;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 20px;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .price-tag {
+                        position: absolute;
+                        bottom: 20px;
+                        left: 20px;
+                        background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+                        color: white;
+                        padding: 1rem 1.5rem;
+                        border-radius: 15px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                        text-align: center;
+
+                        &.pizza-tag {
+                            left: 20px;
+                            right: auto;
+                        }
+
+                        .price {
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                            margin-bottom: 0.25rem;
+                        }
+
+                        .subtitle {
+                            display: block;
+                            font-size: 0.9rem;
+                            opacity: 0.9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Call to Action Section
+    .cta-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #09283c 0%, #1a4d6d 100%);
+        text-align: center;
+        color: white;
+
+        .cta-content {
+            h2 {
+                font-size: 42px;
+                margin-bottom: 1rem;
+                color: white;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #e0e0e0;
+            }
+
+            .main-cta-button {
+                padding: 1.2rem 3rem;
+                font-size: 1.2rem;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 600;
+                background: linear-gradient(135deg, #00a884 0%, #00d4aa 100%);
+                color: white;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 20px rgba(0, 168, 132, 0.3);
+                animation: pulse 2s infinite;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 30px rgba(0, 168, 132, 0.5);
+                    animation: none;
+                }
+            }
+        }
+    }
 }
 
+// Responsive Design
 @media (max-width: 768px) {
     main {
         margin-top: 70px;
@@ -143,11 +571,93 @@ main {
             }
 
             .slider-nav {
-
-                .prev,
-                .next {
+                .prev, .next {
                     padding: 5px;
                     font-size: 1.2rem;
+                }
+            }
+        }
+
+        .water-supply-section, .pizza-section {
+            padding: 3rem 0;
+
+            .section-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+
+                &.reverse {
+                    .text-content, .image-content {
+                        order: initial;
+                    }
+                }
+
+                .text-content {
+                    .icon-badge {
+                        font-size: 40px;
+                    }
+
+                    h2 {
+                        font-size: 28px;
+                    }
+
+                    .section-description {
+                        font-size: 1rem;
+                    }
+
+                    .features-list {
+                        .feature-item {
+                            .check-icon {
+                                font-size: 1.2rem;
+                            }
+
+                            span:last-child {
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+
+                    .cta-button {
+                        padding: 0.8rem 1.5rem;
+                        font-size: 1rem;
+                        width: 100%;
+                        justify-content: center;
+                    }
+                }
+
+                .image-content {
+                    .image-wrapper {
+                        .price-tag {
+                            padding: 0.75rem 1rem;
+
+                            .price {
+                                font-size: 1.2rem;
+                            }
+
+                            .subtitle {
+                                font-size: 0.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .cta-section {
+            padding: 3rem 0;
+
+            .cta-content {
+                h2 {
+                    font-size: 28px;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+
+                .main-cta-button {
+                    padding: 1rem 2rem;
+                    font-size: 1rem;
+                    width: 90%;
                 }
             }
         }
